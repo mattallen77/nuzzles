@@ -1,0 +1,31 @@
+<div class="who-am-i-container">
+  <h2>Who Am I</h2>
+  <h2>I am Prime</h2>
+
+  <div
+    cdkDropList
+    cdkDropListOrientation="horizontal"
+    #selectedList="cdkDropList"
+    [cdkDropListData]="selected"
+    [cdkDropListConnectedTo]="[availableList]"
+    class="who-am-i-list"
+    (cdkDropListDropped)="drop($event)">
+    <div class="who-am-i-box" *ngFor="let item of selected" cdkDrag>{{item}}</div>
+  </div>
+</div>
+
+<div class="who-am-i-container">
+  <h2>Done</h2>
+
+  <div
+    cdkDropList
+    cdkDropListOrientation="horizontal"
+    #availableList="cdkDropList"
+    [cdkDropListData]="available"
+    [cdkDropListConnectedTo]="[selectedList]"
+    class="who-am-i-list"
+    (cdkDropListDropped)="drop($event)">
+    <div class="who-am-i-box" *ngFor="let item of available" cdkDrag>{{item}}</div>
+  </div>
+</div>
+

@@ -32,6 +32,10 @@ const routes: Routes = [
     path: 'tutorial',
     loadChildren: () => import('./pages/tutorial/tutorial.module').then(m => m.TutorialModule),
     canLoad: [CheckTutorial]
+  },
+  {
+    path: 'whoami',
+    loadChildren: () => import('./pages/who-am-i/who-am-i.module').then(m => m.WhoAmIModule)
   }
 ];
 

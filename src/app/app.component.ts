@@ -19,6 +19,9 @@ import { UserData } from './providers/user-data';
 })
 export class AppComponent implements OnInit {
   appPages = [
+    { title: 'Who Am I',
+      url: '/app/tabs/'
+    },
     {
       title: 'Schedule',
       url: '/app/tabs/schedule',
@@ -61,7 +64,7 @@ export class AppComponent implements OnInit {
     this.checkLoginStatus();
     this.listenForLoginEvents();
 
-    this.swUpdate.available.subscribe(async res => {
+    this.swUpdate.available.subscribe(async () => {
       const toast = await this.toastCtrl.create({
         message: 'Update available!',
         position: 'bottom',
@@ -125,5 +128,10 @@ export class AppComponent implements OnInit {
     this.menu.enable(false);
     this.storage.set('ion_did_tutorial', false);
     this.router.navigateByUrl('/tutorial');
+  }
+
+  openWhoAmI() {
+    this.menu.enable(false);
+    this.router.navigateByUrl('/whoami');
   }
 }
